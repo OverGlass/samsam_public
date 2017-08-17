@@ -1,0 +1,16 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Rechercher un jeu - {{ parent() }}{% endblock %}
+
+{% block h1 %}Rechercher un jeu{% endblock %}
+
+{% block content %}
+
+    <form action="{{ base_url() }}backoffice/jeux/recherche/resultat" method="post">
+        <div class="form-group">
+            <input id="recherche" class="form-control" type="text" placeholder="Votre recherche" name="recherche">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+{% endblock %}

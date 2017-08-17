@@ -1,0 +1,299 @@
+{% extends 'base.twig' %}
+{% block title %}Samsam Café | jeux & bières à Troyes{% endblock %}
+
+{% block home %} {% endblock %}
+
+{% block body %}
+    {#<!--script pour le bouton facebook -->#}
+    {#<div id="fb-root"></div>#}
+    {#<!--script d'animation du scolling-->#}
+    {#<!--    script pour le bouton facebook-->#}
+    {#<script>#}
+        {#(function (d, s, id) {#}
+            {#var js, fjs = d.getElementsByTagName(s)[0];#}
+            {#if (d.getElementById(id)) return;#}
+            {#js = d.createElement(s);#}
+            {#js.id = id;#}
+            {#js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";#}
+            {#fjs.parentNode.insertBefore(js, fjs);#}
+        {#}(document, 'script', 'facebook-jssdk'));#}
+    {#</script>#}
+
+    {#<!--    script pour le bouton twitter -->#}
+    {#<script>#}
+        {#! function (d, s, id) {#}
+            {#var js, fjs = d.getElementsByTagName(s)[0],#}
+                    {#p = /^http:/.test(d.location) ? 'http' : 'https';#}
+            {#if (!d.getElementById(id)) {#}
+                {#js = d.createElement(s);#}
+                {#js.id = id;#}
+                {#js.src = p + '://platform.twitter.com/widgets.js';#}
+                {#fjs.parentNode.insertBefore(js, fjs);#}
+            {#}#}
+        {#}(document, 'script', 'twitter-wjs');#}
+    {#</script>#}
+
+    <section id="all">
+
+        {#<!-- Présentation Vidéo -->#}
+        {#<section class="presentation">#}
+            {#<div class="column firstPart">#}
+                {#<div class="columns large-centered imageAccueil">#}
+
+                    {#<div class="small-8 columns small-centered onlyMobile">#}
+                        {#<img src="{{ base_url() }}assets/img/logo_samsamcafe.svg" alt="logo" class="logo">#}
+                        {#<p>Bar, café, jeux...</p>#}
+                    {#</div>#}
+
+                    {#<video autoplay muted loop class="onlyDesk" poster="{{ base_url() }}assets/">#}
+                        {#<source src="{{ base_url() }}assets/video/video_h265.mp4" type="video/mp4" />#}
+                        {#<source src="{{ base_url() }}assets/video/Video_h264.mp4" type="video/mp4" />#}
+                        {#<source src="{{ base_url() }}assets/video/video_vp9.webm" type="video/webm" />#}
+                    {#</video>#}
+                    {#<img src="{{ base_url() }}assets/img/photobiere.png" alt="" class="column imgMobile onlyMobile">#}
+                {#</div>#}
+            {#</div>#}
+            {#<!--bouton pour continuer la visite-->#}
+            {#<div class="columns large-centered ">#}
+                {#<div class="interact">#}
+                    {#<a href="#z1">#}
+                        {#<p>Tu veux découvrir le Samsam ?</p>#}
+                        {#<div class="large-1 columns  large-centered small-centered">#}
+                            {#<div class="arrow animated bounce">#}
+                                {#<img width="40" height="40" alt="down" class="down  columns small-centered" src="{{ base_url() }}assets/img/down.svg" />#}
+                            {#</div>#}
+                        {#</div>#}
+
+                    {#</a>#}
+                {#</div>#}
+            {#</div>#}
+
+        {#</section>#}
+
+
+        <section id="video">
+            <video autoplay muted loop poster="{{ base_url() }}assets/img/photobiere.png">
+            <source src="{{ base_url() }}assets/video/video_h265.mp4" type="video/mp4" />
+            <source src="{{ base_url() }}assets/video/Video_h264.mp4" type="video/mp4" />
+            <source src="{{ base_url() }}assets/video/video_vp9.webm" type="video/webm" />
+            </video>
+        </section>
+
+        <!--bouton pour continuer la visite-->
+        <div class="interact">
+            <a href="#z1">
+                <p>Découvre le <strong>Samsam Café</strong>!!</p>
+                <div class="large-1 columns large-centered small-centered">
+                    <div class="arrow animated bounce">
+                        <img width="40" height="40" alt="down" class="down column small-centered" src="{{ base_url() }}assets/img/down.svg" />
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!--deuxieme section -->
+        <section id="z1"  class="block">
+            <div>
+                <div class="titre">
+                    <div class="small-1 large-1 columns">
+                        <img src="{{ base_url() }}assets/img/ico/ico_jeu.svg" alt="icone jeux">
+                    </div>
+                    <div class="small-11 large-11 columns">
+                        <h3>Jeux de société, Jeux de rôle</h3>
+                    </div>
+                </div>
+                <!--bouton pour continuer la visite-->
+
+                <div>
+                    <img src="{{ base_url() }}assets/img/jeux.jpg" alt="joueur">
+                </div>
+
+                <div class="bestTextEver">
+                    <div>
+
+                            <h4><b>Dis Cortex, tu veux faire quoi ce soir ?</b></h4>
+                        <p>
+                            La même chose que chaque soir, Minus, tenter de conquérir le monde dans une partie de Croque-Carotte au <strong>Samsam Café</strong> ou grâce à un des 100
+                            <i>jeux de société</i> et <i>jeux rôles</i> disponible en libre-service !
+                            <br> Et ils sont rangés où déjà ?
+                            <br> Comme tous les autres soirs, Minus, à l’étage du Samsam, tu ne retiens jamais rien toi ! Ils ont même mis des QRCode à scanner avec ton smartphone pour tout savoir sur les <strong>jeux</strong> !
+
+                        </p>
+
+                        <p><i>Tu veux voir tout nos jeux ? Clique sur le <img src="{{ base_url() }}assets/img/ico/ico_jeu.svg" alt="icone jeux"> dans la bar de navigation.</i></p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--bouton pour continuer la visite-->
+            <div class="interact">
+                <a href="#z2">
+                    <p>Continue ta découverte</p>
+                    <div class="large-1 columns large-centered small-centered">
+                        <div class="arrow animated bounce">
+                            <img width="40" height="40" alt="down" class="down column small-centered" src="{{ base_url() }}assets/img/down.svg" />
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        <section id="z2"  class="block">
+            <div>
+                <div class="titre">
+                    <div class="small-1 large-1 columns">
+                        <img src="{{ base_url() }}assets/img/ico/ico_beer.svg" alt="icone jeux">
+                    </div>
+                    <div class="small-11 large-11 columns">
+                        <h3>Bières et autres délices</h3>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="{{ base_url() }}assets/img/photobiere.png" alt="joueur">
+                </div>
+
+                <div class="bestTextEver">
+                    <div>
+                        <h4><b>Envie d'une bonne bière ?</b></h4>
+                        <p> Belges, françaises, hollandaises, blondes, blanches, brunes, noires, ambrées, trappiste,
+                            pils, lambic, amère, douce, j’en passe et des meilleurs. Ça va ? Pas trop saturé par le
+                            choix de <strong>bières</strong> du <strong>Samsam Café</strong> ? T’en fait pas, on est là pour t’aider à choisir ce que tu
+                            veux. Comment ? Rien de plus simple. Soit tu vas choisir directement ta mousse sur le site,
+                            puis tu viens commander au comptoir, soit tu vas voir nos experts barman du Samsam qui te
+                            conseillerons sur la meilleure bière à prendre.
+                            <br>
+                            <br> Aller viens, fais nous un peu confiance !
+
+                        </p>
+                        <p><i>Tu veux voir toute nos bières ? Clique sur le <img src="{{ base_url() }}assets/img/ico/ico_beer.svg" alt="icone jeux"> dans la bar de navigation.</i></p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="theTuto" style="display: none">
+        <!--bouton pour continuer la visite-->
+        <div class="interact onlyMobile">
+            <a href="#z2">
+                <p>Continue ta découverte</p>
+                <div class="large-1 columns large-centered small-centered">
+                    <div class="arrow animated bounce">
+                        <img width="40" height="40" alt="down" class="down column small-centered" src="{{ base_url() }}assets/img/down.svg" />
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- section tuto pour mettre le site sur la page d'accueil-->
+        <section class=" onlyMobile">
+            <div class="column tutoSam " id="z4">
+                <div class=" columns titre">
+                    <div class="small-1 columns">
+                        <img src="{{ base_url() }}assets/img/ico/ico_news.svg" alt="icone apprendre" class="apprendre">
+                    </div>
+                    <div class="small-11 columns">
+                        <h3>Nous mettre sur ta page d'accueil</h3>
+                    </div>
+
+
+                    <section class="columns" id="android">
+
+                        <div class="small-10 small-centered columns">
+                            <p>Pour une meilleur expérience sur ton portable, rien de plus simple, suis les instructions sur ces images et ce sera tout bon !</p>
+                        </div>
+                        <div class="imageTuto">
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/android/android1.png" alt="" class="photoTuto">
+                            </div>
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/android/android2.png" alt="" class="photoTuto">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="columns" id="ios">
+
+                        <div class="small-10 small-centered columns">
+                            <p>Pour une meilleur expérience sur ton portable, rien de plus simple, suis les instructions sur ces images et ce sera tout bon !</p>
+                        </div>
+                        <div class="imageTuto">
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/ios/safari1.png" alt="" class="photoTuto">
+                            </div>
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/ios/safari2.png" alt="" class="photoTuto">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="columns" id="windows">
+
+                        <div class="small-10 small-centered columns">
+                            <p>Pour une meilleur expérience sur ton portable, rien de plus simple, suis les instructions sur ces images et ce sera tout bon !</p>
+
+                        </div>
+                        <div class="imageTuto">
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/windows_phone/windows1.png" alt="" class="photoTuto">
+                            </div>
+                            <div class=" medium-6 columns">
+                                <img src="{{ base_url() }}assets/img/windows_phone/windows2.png" alt="" class="photoTuto">
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+            </div>
+
+        </section>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+    $(document).on('click', '#all a', function (event) {
+    event.preventDefault();
+
+    $('body').animate({
+    scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+    });
+    </script>
+    <script>
+
+        /**
+         * Determine quel est le systeme opérateur
+         * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+         *
+         * @returns {String}
+         */
+        (function getMobileOperatingSystem(global) {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if(/windows phone/i.test(userAgent) || /android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream && !window.navigator.standalone == true && !window.matchMedia('(display-mode: standalone)').matches) {
+                document.getElementById('theTuto').style.display = 'block';
+            }
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+                document.getElementById('windows').style.display = 'block';
+            }
+
+            if (/android/i.test(userAgent)) {
+                document.getElementById('android').style.display = 'block';
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                document.getElementById('ios').style.display = 'block';
+            }
+
+            return "unknown";
+        }(window))
+    </script>
+{% endblock %}

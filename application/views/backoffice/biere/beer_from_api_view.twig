@@ -1,0 +1,20 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Liste des bières selon votre recherche - {{ parent }}{% endblock %}
+
+{% block h1 %}Liste des bières selon votre recherche{% endblock %}
+
+{% block content %}
+    <ul>
+        {# parcours du tableau obtenu par l'api #}
+        {% for beer in beers.data %}
+            {% for brewerie in beer.breweries %}
+                <li>{{ beer.name }} | {{ beer.abv }} | {{ brewerie.name }} <a
+                            href="{{ base_url() }}backoffice/biere/ajout/{{ beer.id }}">Ajouter à la
+                        carte</a>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    <a href="{{ base_url() }}backoffice/biere/ajoutNouvelle"><button class="btn btn-default">Ajouter une bière qui n'est pas dans la liste</button></a>
+{% endblock %}

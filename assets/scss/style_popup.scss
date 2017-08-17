@@ -1,0 +1,57 @@
+.contactUs {
+    border-radius: 10px;
+    background-color: $white;
+    border: none;
+    h1 {
+        text-align: center;
+        color: $blue;
+    }
+    .localMap {
+        text-align: center;
+        .map {
+            border-radius: 10px;
+        }
+        .GO {
+            font-size: 20px;
+            color: $white;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .GO:hover {
+            color: #0a0a0a;
+        }
+    }
+    .blockInfo {
+        .row {
+            display: block;
+            margin: 15px auto;
+        }
+        .info {
+            margin-bottom: 5px;
+            margin-top: 10px;
+            background-color: $blue;
+            color: #f2f2f2;
+            height: 40px;
+            opacity: 0.7;
+            text-align: center;
+            border-radius: 5px;
+            margin-left: 2px;
+            margin-right: 3px;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 40px;
+            @include breakpoint (medium down){
+                font-size: 15px;
+            }
+        }
+    }
+    .socialNet {
+        text-align: center;
+        img {
+            height: 30px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="{{ base_url() }}assets/backoffice/css/main.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/morris.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="{{ base_url() }}assets/backoffice/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/startmin.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>{% block title %}Back Office{% endblock %}</title>
+    {% block link %} {% endblock %}
+</head>
+
+<body>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ base_url() }}">SamSamCafé</a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i>{{ session.mail }}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="{{ base_url() }}backoffice/user/modifier/mail"><i
+                                    class="fa fa-user fa-fw"></i> Modifier
+                            le mail utilisateur</a>
+                    </li>
+                    <li><a href="{{ base_url() }}backoffice/user/modifier/mdp"><i
+                                    class="fa fa-user fa-fw"></i> Modifier
+                            le mot de passe</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="{{ base_url() }}backoffice/User_back/deconnexion"><i class="fa fa-sign-out fa-fw"></i>
+                            Déconnexion</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="{{ base_url() }}backoffice/biere" class="active"><i
+                                    class="fa fa-cog fa-fw"></i>Gestion des Bières</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url() }}backoffice/jeux"><i
+                                    class="fa fa-group fa-fw"></i> Gestion des jeux</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url() }}backoffice/actualite"><i class="fa fa-group fa-fw"></i> Gestion des actualités</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">{% block h1 %}{% endblock %}</h1>
+                </div>
+            </div>
+
+    {% block content %}
+
+    {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

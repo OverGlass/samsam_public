@@ -1,0 +1,28 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Liste des jeux selon votre recherche - {{ parent }}{% endblock %}
+
+{% block h1 %}Liste des jeux selon votre recherche{% endblock %}
+
+{% block content %}
+    <ul>
+        {# parcours du tableau obtenu par l'api #}
+        {% for id in games.id %}
+            <li>
+                {# parcours du tableau info pour recuperer le nom et la date de sortie #}
+                {# loop.index0 correspond à l'itération actuelle de la boucle #}
+                {% if  games.info.boardgame[loop.index0] is defined %}
+                    {{ games.info.boardgame[loop.index0].name }} |
+                    {{ games.info.boardgame[loop.index0].yearpublished }} |
+                {% else %}
+                    {{ games.info.boardgame.name }} |
+                    {{ games.info.boardgame.yearpublished }} |
+                {% endif %}
+                <a href="{{ base_url() }}backoffice/jeux/ajout/{{ id.objectid }}">Ajouter à la carte</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ base_url() }}backoffice/jeux/ajoutNouveaux">
+        <button class="btn btn-default">Ajouter un jeu qui n'est pas dans la liste</button>
+    </a>
+{% endblock %}

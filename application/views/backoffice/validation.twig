@@ -1,0 +1,15 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Validation - {{ parent() }}{% endblock %}
+
+{% block h1 %}Validation{% endblock %}
+
+{% block content %}
+    <p>
+        {% if mdp is defined %}
+            Le mot de passe a bien été modifié
+        {% elseif mail is defined %}
+            Le mail a bien été modifié
+        {% endif %}
+    </p>
+{% endblock %}

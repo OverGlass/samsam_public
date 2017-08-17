@@ -1,0 +1,82 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Gestion Bière - {{ parent() }}{% endblock %}
+
+{% block h1 %}Gestion des bières{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{{ base_url() }}backoffice/biere/recherche">Ajout d'une bière</a><br>
+    </div>
+    <table class="table text-center" id="gestion">
+
+        <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Provenance</td>
+            <td>Type</td>
+            <td>Titrage</td>
+            <td>Référence</td>
+            <td>Amertume</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+            <td>Disponible</td>
+        </tr>
+        </thead>
+        <tbody>
+        <form action="{{ base_url() }}backoffice/Beer_back/add_in_bar/" method="post">
+            {% for beer in beers %}
+                <tr>
+                    <td>{{ beer.biere_nom }}</td>
+                    <td>{{ beer.biere_provenance }}</td>
+                    <td>{{ beer.biere_type }}</td>
+                    <td>{{ beer.biere_pourcentage }}%</td>
+                    <td>{{ beer.biere_reference }}</td>
+                    <td>{{ beer.biere_amertume }}</td>
+                    <td><a href="{{ base_url() }}backoffice/biere/modifier/{{ beer.biere_id }}">Modifier</a>
+                    </td>
+                    <td><a href="{{ base_url() }}backoffice/biere/supprimer/{{ beer.biere_id }}">Supprimer</a></td>
+                    <td>
+                        <label>
+                            <input class="checkbox" type="checkbox" name="" value="{{ beer.biere_id }}"
+                                    {% if beer.biere_dispo == 1 %}
+                                        checked
+                                    {% endif %}
+                            >
+                        </label>
+                    </td>
+                </tr>
+            {% endfor %}
+            <div class="validate">
+                <input type="checkbox" id="check_all">
+                <button type="submit" class="btn btn-default button-checkbox">Enregistrer</button>
+            </div>
+        </form>
+        </tbody>
+    </table>
+    <a id="reload" href="{{ base_url() }}backoffice/Beer_back/beer_list">reload</a>
+    <script>
+        $(document).ready(function () {
+            $(".button-checkbox").click(function () {
+                $(".checkbox").each(function () {
+                    if (this.checked == true) {
+                        this.name = "check[]";
+                    } else {
+                        this.name = "empty[]"
+                        this.checked = true;
+                    }
+                });
+            });
+            $('#check_all').click(function () {
+                if (this.checked == true){
+                    $(".checkbox").each(function () {
+                        this.checked = true;
+                    })
+                } else {
+                    $('#reload').get(0).click();
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

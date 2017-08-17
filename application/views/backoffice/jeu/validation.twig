@@ -1,0 +1,19 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Validation - {{ parent() }}{% endblock %}
+
+{% block h1 %}Validation{% endblock %}
+
+{% block content %}
+    <p>
+        {% if add is defined %}
+            Le jeu a bien été ajouté
+        {% elseif mod is defined %}
+            Le jeu a bien été modifié
+        {% elseif del is defined %}
+            Le jeu a bien été supprimé
+        {% elseif check is defined %}
+            Le jeu existe déjà
+        {% endif %}
+    </p>
+{% endblock %}

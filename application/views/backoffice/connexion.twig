@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="{{ base_url() }}assets/backoffice/css/main.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{{ base_url() }}assets/backoffice/css/morris.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="{{ base_url() }}assets/backoffice/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ base_url() }}assets/backoffice/js/startmin.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>Connexion - Back Office</title>
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="{{ base_url() }}">SamSamCafé</a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </nav>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Connexion</h1>
+                </div>
+            </div>
+            <form class="form-horizontal" action="{{ base_url() }}backoffice/connexion" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="nom">Mail utilisateur</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="u_mail"
+                               placeholder="Mail utilisateur" id="mail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="mdp">Mot de passe</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="password" name="u_mdp"
+                               placeholder="Mot de passe" id="mdp">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default col-md-offset-11 col-md-1">Valider</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

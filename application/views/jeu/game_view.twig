@@ -1,0 +1,132 @@
+{% extends 'base.twig' %}
+{% block title %}Jeux | Samsam Café {% endblock %}
+{% block game %} {% endblock %}
+
+{% block body %}
+    <!--titre de la page-->
+    <div class="row">
+        <div class="small-12 columns titre">
+            <h2>Trouve un jeu !</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-6 columns">
+            <span style="display:block; float: left; margin-right: 20px; height: 40px; line-height: 40px;">Filtrer les jeux ? </span>
+            <div class="switch large" style="float: left; margin: 0; padding: 0;">
+                <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+                <label class="switch-paddle" for="exampleSwitch">
+                </label>
+            </div>
+        </div>
+        <div class="small-6 columns">        </div>
+
+
+    </div>
+
+    <section id="filtre" class="blurFiltre">
+        <!--ensemble des tags de la page -->
+        <div class="row">
+            <div class="small-12 medium-6 columns">
+                <label for="jeuTime">Combien as tu de temps devant toi ?</label>
+                <div id="slider-time" class="slider" data-slider data-initial-start="{{ maxTime }}" data-end="{{ maxTime }}" data-start="{{ minTime }}">
+                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="jeuTime"></span>
+                    <span class="slider-fill" data-slider-fill></span>
+                </div>
+                <div class="input-group">
+                    <span  class="input-group-label tag">min</span>
+                    <input style="margin-bottom: 0;" data-option="range"  class="tag" min="{{ minTime }}" max="{{ maxTime }}" type="number" id="jeuTime" />
+                </div>
+            </div>
+            <div class="small-12 medium-6 columns">
+                <label for="jeuTime">Vous êtes combien ?</label>
+                <div id="slider-joueur" class="slider" data-slider data-initial-start="2" data-end="20" data-start="2">
+                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="5" aria-controls="jeuJoueur"></span>
+                    <span class="slider-fill" data-slider-fill></span>
+                </div>
+                <div class="input-group">
+                    <input class="tag" type="number" data-option="between"  min="2" placeholder="Nombre de joueur" id="jeuJoueur">
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div class="row">
+            <!--les tag types-->
+
+            <div class="small-12 columns">
+                <select name="select" class="tag" id="jeuType">
+                    <option value="default" selected>Type</option>
+                    {% for type in types %}
+                        <option value="{{ type }}">{{ type | capitalize }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </section>
+
+
+    <!--premier produits-->
+    {#/durree parti - cooperatif / type/ age / ambience /nb personne#}
+    <div class="row">
+        {% for jeu in jeux %}
+            <div class="column vignette small-12 medium-6 large-4 end" data-filter="{{ jeu.jeu_type}},*{{ jeu.jeu_nb_joueur_min }};{{ jeu.jeu_nb_joueur_max }},%{{ jeu.jeu_duree }}">
+                <a href="{{ base_url() }}jeux/{{ jeu.jeu_id }}">
+                    <div class="produit lol">
+                        <div class="small-2 medium-12 columns">
+                            <img src="{{ jeu.jeu_image }}" alt="{{ jeu.jeu_nom }}">
+                        </div>
+                        <div class="small-10 medium-12 columns">
+                            <div class="row header-detail">
+                                <div class="small-7 columns nom">{{ jeu.jeu_nom }}</div>
+                                <div class="small-4 columns type"><span>{{ jeu.jeu_type | capitalize }}</span></div>
+                            </div>
+                            <div class="small-12 columns description">
+                                <i>{{ jeu.jeu_description }}</i></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}
+
+    {% block script %}
+        <script>
+
+            var JF = OverFilter([
+                'jeuType',
+                'jeuTime',
+                'jeuJoueur'
+
+            ], 'vignette','game');
+
+            var data;
+            $('#exampleSwitch').change(function () {
+                $('#filtre').toggleClass('blurFiltre');
+
+            });
+
+            JF.listener();
+
+            $('#exampleSwitch').change(function () {
+                if($(this).is(':checked')){
+                    JF.perso();
+                    JF.filter();
+                    if(data == {}){
+                        JF.dataToFilter = data;
+                    }
+                } else {
+                    data = JF.dataToFilter;
+                    console.log(data);
+                    JF.reset();
+                }
+            });
+
+            JF.saveParam();
+        </script>
+
+    {% endblock %}

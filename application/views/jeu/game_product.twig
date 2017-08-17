@@ -1,0 +1,75 @@
+{#DETAIL PRODUIT #}
+
+{% extends 'base.twig' %}
+
+{% block title %}{% for jeu in jeu %} {{ jeu.jeu_nom }}{% endfor %} | Samsam Café {% endblock %}
+
+{% block game %} {% endblock %}
+
+{% block body %}
+    {% for jeu in jeu %}
+
+        <div class="row" id="retour-bar">
+            <div class="small-8 medium-3 large-2 columns">
+               <a href="{{ base_url() }}jeux"> <div class="retour_produit tag"><img src="{{ base_url() }}assets/img/back.svg" alt="">Un autre jeu ?</div></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="desc_produit">
+                <div class="small-12 medium-12 large-6 columns">
+                    <div class="img-detail lol">
+                        <img src="{{ jeu.jeu_image }}" alt="{{  jeu.jeu_nom }}" class="onlyMobile">
+                        <img src="{{ jeu.jeu_image }}" alt="{{  jeu.jeu_nom }}" class="onlyDesk img-desk">
+                    </div>
+                </div>
+                <div class="small-12 medium-12 large-6 columns block-detail">
+                    <div class="row">
+                        <div class="small-7 medium-12 columns ">
+                            <h1 class="{{ jeu.jeu_type }}">{{  jeu.jeu_nom }}</h1></div>
+
+                    </div>
+                    <div class="small-12 medium-12 columns ">
+                        <p>{{  jeu.jeu_description }}</p>
+                    </div>
+
+                    <div class="row groupeTag small-12 medium-12 columns ">
+
+                        <div class="small-6 columns ">
+                            <div class="taginfo {{ jeu.jeu_type }}">{{ jeu.jeu_type }}</div>
+                        </div>
+                        <div class="small-6 columns ">
+                            <div class="taginfo">Âge min : {{ jeu.jeu_age }}+</div>
+                        </div>
+                        <div class="small-6 columns ">
+                            <div class="taginfo"> Coopératif : {{ jeu.jeu_coop }}</div>
+                        </div>
+
+
+                        <div class="small-6 columns ">
+                            <div class="taginfo">Joueurs : <b>{{jeu.jeu_nb_joueur_min }}</b> -> <b>{{jeu.jeu_nb_joueur_max }}</b></div>
+                        </div>
+                        <div class="small-6 columns">
+                            <div class="taginfo">Temps partie : {{ jeu.jeu_duree }}min</div>
+                        </div>
+                        <div class="small-6 columns">
+                            <div class="taginfo">Sortie : {{ jeu.jeu_date }}</div>
+                        </div>
+
+                        {% set wordsDiff = ['Très facile', 'facile','intermédiaire', 'difficile', 'très difficile'] %}
+                        {% for wordDiff in wordsDiff %}
+                            {% if loop.index == jeu.jeu_difficulte %}
+                                <div class="small-12 columns end ">
+                                    <div class="taginfo diff-{{ jeu.jeu_difficulte }}">Difficulté : {{ wordDiff }}</div>
+                                </div>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

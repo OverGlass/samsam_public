@@ -1,0 +1,17 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Validation - {{ parent() }}{% endblock %}
+
+{% block h1 %}Validation{% endblock %}
+
+{% block content %}
+    <p>
+        {% if add is defined %}
+            L'actualité a bien été ajoutée
+        {% elseif mod is defined %}
+            L'actualité a bien été modifiée
+        {% elseif del is defined %}
+            L'actualité a bien été supprimée
+        {% endif %}
+    </p>
+{% endblock %}

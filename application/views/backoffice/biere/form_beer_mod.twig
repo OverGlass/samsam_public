@@ -1,0 +1,117 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Formulaire de modification de Bières - {{ parent() }}{% endblock %}
+
+{% block h1 %}Formulaire de modification de Bières{% endblock %}
+
+{% block content %}
+    {# on recupere les données de la bdd pour une bière #}
+    <form class="form-horizontal" action="{{ base_url() }}backoffice/biere/validation/modifier" method="POST" id="form" enctype="multipart/form-data">
+        {% for oneBeer in beer %}
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="nom">Nom</label>
+                <div class="col-sm-10">
+                    <input class="form-control" value="{{ oneBeer.biere_nom }}" type="text" name="b_name"
+                           placeholder="Nom de la bière" id="nom">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="description">Description</label>
+                <div class="col-sm-10"><textarea class="form-control" type="text" name="b_description"
+                                                 placeholder="Description de la bière"
+                                                 id="description">{{ oneBeer.biere_description }}</textarea></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="provenance">Provenance</label>
+                {# on veut la provenance de la bière, qui se trouve au bout de différents tableaux #}
+                <div class="col-sm-10"><input class="form-control" type="text" name="b_provenance"
+                                              placeholder="Provenance de la bière"
+                                              id="provenance"
+                                              value="{{ oneBeer.biere_provenance }}"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="type">Type</label>
+                {# couleur obtenue depuis la fonction couleur de models/biere/Beer_back_model en fonction du srm de la bière #}
+                <div class="col-sm-10">
+                    <select name="b_type" id="type" class="form-control">
+                        <option value="blanche" {% if oneBeer.biere_type == "blanche" %} selected {% endif %}>blanche</option>
+                        <option value="blonde" {% if oneBeer.biere_type == "blonde" %} selected {% endif %}>blonde</option>
+                        <option value="ambrée" {% if oneBeer.biere_type == "ambrée" %} selected {% endif %}>ambrée</option>
+                        <option value="brune" {% if oneBeer.biere_type == "brune" %} selected {% endif %}>brune</option>
+                        <option value="noire" {% if oneBeer.biere_type == "noire" %} selected {% endif %}>noire</option>
+                        <option value="rouge" {% if oneBeer.biere_type == "rouge" %} selected {% endif %}>rouge</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="pourcentage">ABV</label>
+                <div class="col-sm-10"><input class="form-control" type="text" name="b_pourcentage"
+                                              placeholder="ABV de la bière"
+                                              value="{{ oneBeer.biere_pourcentage }}"
+                                              id="pourcentage"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="amertume">Amertume</label>
+                <div class="col-sm-10">
+                    <select name="b_amertume" id="amertume" class="form-control">
+                        <option value="douce" {% if oneBeer.biere_amertume == 'douce' %} selected {% endif %}>Douce</option>
+                        <option value="douce-amère" {% if oneBeer.biere_amertume == 'douce-amère' %} selected {% endif %}>Douce-amère</option>
+                        <option value="amère" {% if oneBeer.biere_amertume == 'amère' %} selected {% endif %}>Amère</option>
+                        <option value="désaltérante" {% if oneBeer.biere_amertume == 'désaltérente' %} selected {% endif %}>Désaltérante</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="brasserie" class="col-sm-2 control-label">Brasserie</label>
+                <div class="col-sm-10">
+                    <input type="text" name="b_brasserie" id="brasserie"
+                           placeholder="Brasserie"
+                           value="{{ oneBeer.biere_brasserie }}"
+                           class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="reference">reference</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="b_reference" id="reference">
+                        <option value="bouteille" {% if oneBeer.biere_reference == 'bouteille' %} selected {% endif %}>
+                            bouteille
+                        </option>
+                        <option value="pression" {% if oneBeer.biere_reference == 'pression' %} selected {% endif %}>
+                            pression
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            {# TODO::remplacer ce système par une séléction de fichier (voir vegyscan pour ça)#}
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="photo">Url d'une image (jpg, png ou gif)</label>
+                <div class="col-sm-10"><input id="photo" value="{{ oneBeer.biere_photo }}" class="form-control"
+                                              type="text" name="b_image"
+                                              placeholder="image"></div>
+                <input type="file" name="img_upload">
+            </div>
+            {# image récuperée dans l'api #}
+            <input type="hidden" name="b_id" value="{{ id }}">
+        {% endfor %}
+        <button type="submit" class="btn btn-default col-md-offset-11 col-md-1">Submit</button>
+    </form>
+
+    <script>
+        $('#form').submit(function (event) {
+            error = 0;
+            $('#nom').each(function () {
+                if ($(this).val() == '') {
+                    event.preventDefault();
+                    error++;
+                }
+            });
+            if (error > 0) {
+                alert('Un champs obligatoire n\'a pas été renseigné');
+
+            }
+        });
+    </script>
+{% endblock %}

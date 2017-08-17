@@ -1,0 +1,332 @@
+//declaration de la police ubuntu
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/Ubuntu.woff2');
+    src: url('../font/Ubuntu.woff2') format('woff2'), url('../font/Ubuntu.woff') format('woff'), url('../font/Ubuntu.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//ubuntu grasse
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/Ubuntu-Bold.woff2');
+    src: url('../font/Ubuntu-Bold.woff2') format('woff2'), url('../font/Ubuntu-Bold.woff') format('woff'), url('../font/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: bold;
+}
+
+//ubuntu italic
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/Ubuntu-Italic.woff2');
+    src: url('../font/Ubuntu-Italic.woff2') format('woff2'), url('../font/Ubuntu-Italic.woff') format('woff'), url('../font/Ubuntu-Italic.ttf') format('truetype');
+    font-weight: Italic;
+    font-style: Italic;
+}
+
+//ubuntu light
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/Ubuntu-Light.woff2');
+    src: url('../font/Ubuntu-Light.woff2') format('woff2'), url('../font/Ubuntu-Light.woff') format('woff'), url('../font/Ubuntu-Light.ttf') format('truetype');
+    font-weight: Lighter;
+    font-style: Lighter;
+}
+
+//ubuntu light italic
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/Ubuntu-LightItalic.woff2');
+    src: url('../font/Ubuntu-LightItalic.woff2') format('woff2'), url('../font/Ubuntu-LightItalic.woff') format('woff'), url('../font/Ubuntu-LightItalic.ttf') format('truetype');
+    font-weight: Lighter;
+    font-style: italic;
+}
+html, body {
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+    background-image: url(../img/bg.jpg);
+    font-family: Ubuntu;
+    margin-bottom:20px;
+}
+
+//pour le titre de la page (ligne 13 a 18)
+.titre {
+    text-align: center;
+    color: #25929a;
+    font-style: bold;
+    font-size: 2em;
+    padding-bottom:20px;
+    h2 {
+        font-weight: bold;
+    }
+}
+
+//pour les 3 tage en haut des choix ligne 22 a 34)
+.tag {
+    background-color: #25929a;
+    color: #f2f2f2;
+    height: 40px;
+    opacity: 0.7;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 3px;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+    &:focus {
+        background-color: $blue;
+    }
+    &:active {
+        opacity: 0.5;
+        filter: blur(1px);
+    }
+}
+
+.tag option {
+    background-color: #25929a;
+    color: #f2f2f2;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 40px;
+    margin-left: 2px;
+    margin-right: 3px;
+    font-weight: bold;
+}
+
+.deskGrid {
+    @include breakpoint (large) {
+        @include grid-column(1 of 9);
+    }
+    @include grid-column(1 of 3);
+}
+
+a {
+    color: white;
+}
+
+.actufilter .couleur {
+    margin-left:0 !important;
+    font-weight:bold;
+    color: $blue;
+}
+
+.couleur {
+    background-color: white;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 40px;
+    margin-left: 2px;
+    margin-right: 3px;
+}
+
+.blanche {
+    color: #cfc188;
+    font-weight: bold;
+    &.taginfo {
+        background-color: #cfc188;
+        color:#fff;
+    }
+}
+
+.blonde {
+    color: #d0a600;
+    font-weight: bold;
+    &.taginfo {
+        background-color: #d0a600;
+        color:#fff;
+    }
+}
+
+.ambre {
+    color: #7d6400;
+    font-weight: bold;
+    &.taginfo {
+        background-color: #7d6400;
+        color:#fff;
+    }
+}
+
+.brune {
+    color: #443700;
+    font-weight: bold;
+    &.taginfo {
+        background-color: #443700;
+        color:#fff;
+    }
+}
+
+.noire {
+    color: #000;
+    font-weight: bold;
+    &.taginfo {
+        background-color:  #000;
+        color:#fff;
+    }
+}
+
+.rouge {
+    color: #aa0808;
+    font-weight: bold;
+    &.taginfo {
+        background-color: #aa0808;
+        color:#fff;
+    }
+}
+
+#jeux {
+    color: #000;
+    font-weight: bold;
+    &.tag {
+        background-color: #000;
+    }
+}
+
+
+/* Cachons la case à cocher */
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+
+}
+
+[type="radio"]:checked {
+    & + label {
+        box-shadow: inset 10px 10px 63px -13px rgba(0, 0, 0, 0.21);
+
+    }
+}
+
+
+.actufilter {
+    margin-bottom: 15px;
+}
+//pour les produits ligne 38 à ...)
+.produit {
+    $heightProduit: 70px;
+    background-color: white;
+    border-radius: 5px;
+    color: $dark-gray;
+    height: $heightProduit;
+    margin: 5px;
+    &:active {
+        opacity: 0.8;
+        filter: blur(1px);
+    }
+
+
+    img{
+        max-width: none;
+    }
+
+    @include breakpoint(medium) {
+        height: 400px;
+        margin: 0px;
+        margin-top: 10px;
+    }
+
+    @include breakpoint(small) {
+        height: 90px;
+        margin: 0px;
+    }
+
+    & > div:first-child {
+        padding-right: 0;
+        @include breakpoint(medium) {
+            height: 250px;
+            overflow: hidden;
+        }
+        @include breakpoint(small) {
+            height: 100px;
+            overflow: hidden;
+        }
+    }
+    .columns {
+        &:first-child {
+            padding-left: 0px;
+        }
+    }
+    img {
+        border-radius: 5px 0px 0px 5px;
+        height: $heightProduit;
+        @include breakpoint(medium) {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        @include breakpoint(small) {
+            height: 90%;
+            border-radius: 5px 0 0 5px;
+        }
+    }
+}
+
+.header-detail {
+    height: 30px;
+    @include breakpoint(medium) {
+        margin-top: 10px;
+    }
+}
+
+a:hover {
+    color: black;
+}
+
+
+
+//ligne 44
+.nom {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: 3px;
+    font-weight: normal;
+    @include breakpoint (medium down){
+        font-size: 15px;
+    }
+}
+
+//ligne 46
+.type {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: right;
+    > span {
+        font-weight:normal !important;
+    }
+}
+
+//ligne 48
+.description {
+    @include breakpoint(small only){
+        font-size:13px;
+        line-height:1.3em;
+    }
+    font-size: 15px;
+    line-height: 1em;
+    overflow-wrap: break-all;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 46px;
+}
+// FILTRE
+
+#filtre {
+    margin: 10px;
+}
+.blurFiltre {
+    opacity: 0.7;
+    filter: blur(2px);
+    & * {
+        pointer-events: none;
+    }
+}

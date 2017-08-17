@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Template produit</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+
+    <!--titre de la page-->
+    <div class="row">
+        <div class="small-12 columns titre">
+            <h2>Trouve ta mousse !</h2>
+        </div>
+    </div>
+
+
+
+    <!--ensemble des tags de la page -->
+
+    <div class="row">
+        <div class="small-4 columns onlyMobile">
+
+            <select name="select" class="tag" id="#beerType">
+                <option value="default" selected>Couleur</option>
+                <option value="value1">Blonde</option>
+                <option value="value2">Brune</option>
+                <option value="value3">Blanche</option>
+                <option value="value3">Ambrée</option>
+                <option value="value4">Noir</option>
+                <option value="value5">Rouge</option>
+            </select>
+        </div>
+
+        <!--check box pour deskop-->
+        <div class="small-4 columns deskGrid">
+            <div class="tag" id="resetFilter">Toutes</div>
+        </div>
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="blonde" class="blonde" value="blonde">
+            <label for="blonde" class="blonde large-11 columns couleur">Blonde</label>
+        </div>
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="brune" class="brune" value="brune">
+            <label for="brune" class="brune large-11 columns couleur">Brune</label>
+
+        </div>
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="blanche" class="blanche" value="blanche">
+            <label for="blanche" class="blanche large-11 columns couleur">Blanche</label>
+        </div>
+
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="ambre" class="ambre" value="ambrée">
+            <label for="ambre" class="ambre large-11 columns couleur">Ambrée</label>
+        </div>
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="noir" class="noir" value="noir">
+            <label for="noir" class="noir large-11 columns couleur">Noir</label>
+        </div>
+
+        <div class="small-4 columns onlyDesk deskGrid">
+            <input type="radio" name="colorBeer" id="rouge" class="rouge" value="rouge">
+            <label for="rouge" class="rouge large-11 columns couleur">Rouge</label>
+        </div>
+        <!--fin des checkbox-->
+
+
+        <!--les tag brasserie et amertume-->
+
+        <div class="small-4 columns deskGrid">
+            <select name="select" class="tag" id="#beerBrewerie">
+                <option value="value1" selected>Brasserie</option>
+            </select>
+        </div>
+
+      <div class="small-4 columns deskGrid">
+        <select name="select" class="tag" id="beerBitter">
+          <option value="default" selected>Amertume</option>
+          <option value="a1">Un peu</option>
+          <option value="a2">Moyen</option>
+          <option value="a3">Amère</option>
+            </select>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!--premier produits-->
+
+    <div class="row">
+        <a href="" class="vignette">
+            <div class="column small-12 medium-6 large-4 end">
+              <div class="produit" data-filter="ambrée,a3">
+                    <div class="small-3 medium-12 columns">
+                        <img src="image/photo_300x300.png" alt="">
+                    </div>
+                    <div class="small-9 medium-12 columns">
+                        <div class="row header-detail">
+                            <div class="small-7 columns nom">Nom du jeux</div>
+
+                            <div class="small-4 columns type">Joueurs | 1</div>
+                        </div>
+                        <div class="small-12 columns description"><i>Lorem ipsum dolor sit amet, consectetur adipiscing eljqhd dqdig idqsqsd qqsdq ...</i> </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+           <a href="" class="vignette">
+            <div class="column small-12 medium-6 large-4 end">
+              <div class="produit" data-filter="blonde,a2">
+                    <div class="small-3 medium-12 columns">
+                        <img src="image/photo_300x300.png" alt="">
+                    </div>
+                    <div class="small-9 medium-12 columns">
+                        <div class="row header-detail">
+                            <div class="small-7 columns nom">Nom du jeux</div>
+
+                            <div class="small-4 columns type">Joueurs | 1</div>
+                        </div>
+                        <div class="small-12 columns description"><i>Lorem ipsum dolor sit amet, consectetur adipiscing eljqhd dqdig idqsqsd qqsdq ...</i> </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+      <a href="" class="vignette">
+            <div class="column small-12 medium-6 large-4 end">
+              <div class="produit" data-filter="brune,a1">
+                    <div class="small-3 medium-12 columns">
+                        <img src="image/photo_300x300.png" alt="">
+                    </div>
+                    <div class="small-9 medium-12 columns">
+                        <div class="row header-detail">
+                            <div class="small-7 columns nom">Nom du jeux</div>
+                            <div class="small-4 columns type">Joueurs | 1</div>
+                        </div>
+                        <div class="small-12 columns description"><i>Lorem ipsum dolor sit amet, consectetur adipiscing eljqhd dqdig idqsqsd qqsdq ...</i> </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+      <a href="" class="vignette">
+            <div class="column small-12 medium-6 large-4 end">
+              <div class="produit" data-filter="brune,a1">
+                    <div class="small-3 medium-12 columns">
+                        <img src="image/photo_300x300.png" alt="">
+                    </div>
+                    <div class="small-9 medium-12 columns">
+                        <div class="row header-detail">
+                            <div class="small-7 columns nom">Nom du jeux</div>
+
+                            <div class="small-4 columns type">Joueurs | 1</div>
+                        </div>
+                        <div class="small-12 columns description"><i>Lorem ipsum dolor sit amet, consectetur adipiscing eljqhd dqdig idqsqsd qqsdq ...</i> </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+      <a href="" class="vignette">
+            <div class="column small-12 medium-6 large-4 end">
+              <div class="produit" data-filter="brune,a1">
+                    <div class="small-3 medium-12 columns">
+                        <img src="image/photo_300x300.png" alt="">
+                    </div>
+                    <div class="small-9 medium-12 columns">
+                        <div class="row header-detail">
+                            <div class="small-7 columns nom">Nom du jeux</div>
+
+                            <div class="small-4 columns type">Joueurs | 1</div>
+                        </div>
+                        <div class="small-12 columns description"><i>Lorem ipsum dolor sit amet, consectetur adipiscing eljqhd dqdig idqsqsd qqsdq ...</i> </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+    <script src="js/OverFilter.js"></script>
+    <script>
+        var BF = OverFilter([
+          'beerType',
+          'beerBrewerie',
+          'beerBitter',
+          'blonde',
+          'brune',
+          'blanche',
+          'ambre',
+          'noir',
+          'rouge'
+
+        ], 'produit');
+
+        BF.listener();
+//        BF.filter();
+    </script>
+
+</body>
+
+</html>

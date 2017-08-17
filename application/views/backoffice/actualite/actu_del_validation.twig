@@ -1,0 +1,12 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Etes-vous sûr de vouloir supprimer cette actualité - {{ parent() }}{% endblock %}
+
+{% block h1 %}Etes-vous sûr de vouloir supprimer cette actualité ?{% endblock %}
+
+{% block content %}
+    <p>Etes-vous sûr de vouloir supprimer cette actualité ?</p>
+    <a href="{{ base_url() }}backoffice/actualite/validation/supprimer/{{ id }}"><button class="btn btn-default">OUI</button></a>
+
+    <a href="{{ base_url() }}backoffice/actualite"><button class="btn btn-default">NON</button></a>
+{% endblock %}

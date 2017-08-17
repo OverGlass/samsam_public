@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Samsam Café</title>
+    <link rel="stylesheet" href="css/app.css">
+
+    <!--lien pour les favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--meta de facebook-->
+    <!--METTRE LA BONNE URL -->
+    <meta property="og:url" content="http://www.samsamcafe.fr" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Le SamSam Café " />
+    <meta property="og:description" content="Envie d'une bière ? Où de jouer à un jeux ? Où les deux ? Alors viens au SamSam Café !" />
+    <meta property="og:image" content="http://127.0.0.1:57049/assets/img/logo_samsamcafe.svg" />
+
+    <!--meta de twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@SamsamCafe" />
+    <meta name="twitter:creator" content="@SamSam" />
+    <!--
+    <meta property="og:url" content="http://www.samsamcafe.fr" />
+    <meta property="og:title" content="A Twitter for My Sister" />
+    <meta property="og:description" content="In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling." />
+    <meta property="og:image" content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg" />
+    -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!--script d'animation du scolling-->
+    <script type="text/javascript">
+        $(document).on('click', 'a', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+
+
+    <!--script pour le bouton facebook -->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!--    script pour le bouton twitter -->
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+
+    <!--   première section-->
+    <section class="presentation">
+        <div class="column firstPart">
+            <div class="columns large-centered imageAccueil">
+
+                <div class="small-8 columns small-centered onlyMobile">
+                    <img src="img/logo_samsamcafe.svg" alt="logo" class="logo">
+                    <p>Bar, café, jeux...</p>
+                </div>
+
+                <video playsinline autoplay muted loop class="onlyDesk">
+                    <source src="video/video_h265.mp4" type="video/mp4" />
+                    <source src="video/Video_h26v.mp4" type="video/mp4" />
+                    <source src="video/video_vp9.webm" type="video/webm" />
+                </video>
+                <img src="img/400x400.png" alt="" class="column imgMobile onlyMobile">
+            </div>
+        </div>
+        <!--bouton pour continuer la visite-->
+        <div class="columns large-centered ">
+            <div class="interact">
+                <a href="#z1">
+                    <p>Tu veut découvrir le Samsam ?</p>
+                    <div class="large-1 columns  large-centered small-centered">
+                        <div class="arrow animated bounce">
+                            <img width="40" height="40" alt="down" class="down  columns small-centered" src="img/down.svg" />
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    <!--deuxieme section -->
+    <section class="secDeux column large-centered" id="z1">
+        <div class=" descSam">
+
+            <div class="large-5 large-centered columns titre">
+                <div class="small-1 large-1 columns">
+                    <img src="img/ico/ico_jeu.svg" alt="icone jeux">
+                </div>
+                <div class="small-11 large-11 columns">
+                    <h3>Jeux de société, Jeux de rôle</h3>
+                </div>
+            </div>
+            <!--bouton pour continuer la visite-->
+
+            <div class="jeuxPhoto">
+                <img src="img/jeux.jpg" alt="joueur">
+            </div>
+
+
+            <div class="row">
+                <p>Description du concept des jeux,QRCode.. Loremipsumdolor sitamet,consectetur adipis cingelit,seddoei usmodtempor incidid untutlaborenul lapariatur.</p>
+            </div>
+
+
+            <!--les boutons de partage de reseaux sociaux-->
+            <div class="column button">
+                <!--bouton twitter LIEN A MODIFIER EGALEMENT-->
+                <div class="small-3 large-1 columns twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lienamodifier.fr">Tweet</a></div>
+
+                <!--le bouton facebook A REMODIFIER LIEN MAUVAIS -->
+                <div class="small-3 large-1 columns end fb-share-button facebook" data-href="LIEN A CHANGER" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="LIEN A CHANGER">Partager</a></div>
+            </div>
+
+
+        </div>
+        <!--bouton pour continuer la visite-->
+        <div class="columns large-centered ">
+            <div class="interact">
+                <a href="#z2">
+                    <p>Continu ta découverte</p>
+                    <div class="large-1 columns large-centered small-centered">
+                        <div class="arrow animated bounce">
+                            <img width="40" height="40" alt="down" class="down column small-centered" src="img/down.svg" />
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--troisième section -->
+    <section class="secTrois column large-centered " id="z2">
+        <div class="column localSam">
+            <div class="large-4 large-centered columns titre">
+                <div class="small-1 large-1 columns">
+                    <img src="img/ico/ico_contact.svg" alt="icone contact">
+                </div>
+                <div class="small-11 large-11 columns">
+                    <h3>Tu peux nous trouver...</h3>
+                </div>
+            </div>
+            <!--carte pour mobile -->
+            <div class=" small-10 columns small-centered onlyMobile">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10616.723005606565!2d4.074356!3d48.299375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x63ca241ae75169f1!2sSam-Sam+Caf%C3%A9!5e0!3m2!1sfr!2sfr!4v1484150440874" frameborder="0" style="border:0" allowfullscreen class="carte"></iframe>
+            </div>
+
+            <!--carte pour pc-->
+            <div class="row">
+                <div class=" small-10 large-4 columns onlyDesk">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10616.723005606565!2d4.074356!3d48.299375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x63ca241ae75169f1!2sSam-Sam+Caf%C3%A9!5e0!3m2!1sfr!2sfr!4v1484150440874" width="1200" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="small-10 large-10 columns">
+                <div class="blockInfo">
+                    <div class="small-10 large-3 columns info">Téléphone : 03 25 73 89 43</div>
+                    <div class="small-10 large-3 columns info">Mardi au Vendredi: 11:00 - 2:30</div>
+                    <div class="small-10 large-3 columns end info">Lundi et Samedi: 17:00 - 2:30</div>
+                </div>
+            </div>
+        </div>
+        <!--bouton pour continuer la visite-->
+        <div class="columns large-centered  onlyMobile">
+            <div class="interact">
+                <a href="#z3">
+                    <p>Encore un petit peu ? </p>
+                    <div class="large-1 columns  large-centered small-centered">
+                        <div class="arrow animated bounce">
+                            <img width="40" height="40" alt="down" class="down small-12 large-12 columns small-centered" src="img/down.svg" />
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- section tuto pour mettre le site sur la page d'accueil-->
+    <section class=" onlyMobile">
+        <div class="column tutoSam " id="z3">
+            <div class=" columns titre">
+                <div class="small-1 columns">
+                    <img src="img/ico/ico_news.svg" alt="icone apprendre" class="apprendre">
+                </div>
+                <div class="small-11 columns">
+                    <h3>Nous mettres sur ta page d'accueil</h3>
+                </div>
+
+
+                <section class="columns" id="android">
+
+                    <div class="small-10 small-centered columns">
+                        <p>Pour nous avoir toujours sur ton portable, rien de plus simple, suis les insctructions sur ces images et ce sera tout bon !</p>
+                    </div>
+                    <div class="imageTuto">
+                        <div class=" medium-6 columns">
+                            <img src="img/android/android1.png" alt="" class="photoTuto">
+                        </div>
+                        <div class=" medium-6 columns">
+                            <img src="img/android/android2.png" alt="" class="photoTuto">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="columns" id="ios">
+
+                    <div class="small-10 small-centered columns">
+                        <p>Pour nous avoir toujours sur ton portable, rien de plus simple, suis les insctructions sur ces images et ce sera tout bon !</p>
+                    </div>
+                    <div class="imageTuto">
+                        <div class=" medium-6 columns">
+                            <img src="img/ios/safari1.png" alt="" class="photoTuto">
+                        </div>
+                        <div class=" medium-6 columns">
+                            <img src="img/ios/safari2.png" alt="" class="photoTuto">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="columns" id="windows">
+
+                    <div class="small-10 small-centered columns">
+                        <p>Pour nous avoir toujours sur ton portable, rien de plus simple, suis les insctructions sur ces images et ce sera tout bon !</p>
+                    </div>
+                    <div class="imageTuto">
+                        <div class=" medium-6 columns">
+                            <img src="img/windows_phone/windows1.png" alt="" class="photoTuto">
+                        </div>
+                        <div class=" medium-6 columns">
+                            <img src="img/windows_phone/windows2.png" alt="" class="photoTuto">
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <script>
+        /**
+         * Determine quel est le systeme opérateur
+         * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+         *
+         * @returns {String}
+         */
+        (function getMobileOperatingSystem(global) {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+                document.getElementById('windows').style.display = 'block';
+            }
+
+            if (/android/i.test(userAgent)) {
+                document.getElementById('android').style.display = 'block';
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                document.getElementById('ios').style.display = 'block';
+            }
+
+            return "unknown";
+        }(window))
+    </script>
+
+
+</body>
+
+</html>

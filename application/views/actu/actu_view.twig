@@ -1,0 +1,80 @@
+{% extends 'base.twig' %}
+{% block title %}Actualités | Samsam Café {% endblock %}
+{% block news %} {% endblock %}
+
+{% block body %}
+    <!--titre de la page-->
+    <div class="row">
+        <div class="small-12 columns titre">
+            <h2>Nos actualités !</h2>
+        </div>
+    </div>
+
+<div class="row actufilter">
+    <div class="small-3 columns">
+        <input type="radio" name="actuType" id="resetFilter">
+        <label for="resetFilter" style="width: 100%;" class="couleur">X</label>
+    </div>
+    {% for categorie in categories %}
+
+        <div class="small-3 columns">
+            <input
+                    type="radio"
+                    name="categorieActu"
+                    id="{{ categorie}}"
+                    value="{{ categorie }}">
+
+            <label
+                    for="{{ categorie }}"
+                    style="width: 100%;"
+                    class="couleur">{{ categorie | capitalize }}</label>
+
+        </div>
+    {% endfor %}
+</div>
+
+
+
+    <!--premier produits-->
+    <div class="row">
+        {% for actu in actus %}
+            <div class="column vignette small-12 medium-6 large-4 end" data-filter="{{ actu.actu_categorie}}">
+                <a href="{{ base_url() }}actualite/{{ actu.actu_id }}">
+                    <div class="produit">
+                        <div class="small-2 medium-12 columns lol">
+                            <img src="{{ actu.actu_image }}" alt="{{ actu.actu_nom }}">
+                        </div>
+                        <div class="small-10 medium-12 columns">
+                            <div class="row header-detail">
+                                <div class="small-7 columns nom {{ classCouleur }}">{{ actu.actu_nom | capitalize }}</div>
+
+                                <div class="small-4 columns type"><span>{{ actu.actu_date }}</span></div>
+                            </div>
+                            <div class="small-12 columns description">
+                                <i>{{ actu.actu_contenu | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') | slice(0, 160)}}...</i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+    var BF = OverFilter([
+        {% for categorie in categories %}
+        '{{ categorie }}',
+        {% endfor %}
+
+    ], 'vignette','actu');
+
+    BF.listener();
+    BF.saveParam();
+</script>
+
+{% endblock %}

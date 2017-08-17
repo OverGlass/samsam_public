@@ -1,0 +1,50 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %} Gestion des jeux - {{ parent() }}{% endblock %}
+
+{% block h1 %} Gestion des jeux {% endblock %}
+
+{% block content %}
+<div>
+    <a href="{{ base_url() }}backoffice/jeux/recherche">Ajout d'un jeu</a><br>
+    <a href="{{ base_url() }}backoffice/jeux/pdfAll">Imprimer tous les QR Codes</a>
+</div>
+<table class="table text-center">
+
+    <thead>
+    <tr>
+        <td>Nom</td>
+        <td>Sortie</td>
+        <td>Nombre de joueur minimum</td>
+        <td>Nombre de joueur maximum</td>
+        <td>Difficulté</td>
+        <td>Modifier</td>
+        <td>Supprimer</td>
+        <td>QR Code</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for game in games %}
+        <tr>
+            <td>{{ game.jeu_nom }}</td>
+            <td>{{ game.jeu_date }}</td>
+            <td>{{ game.jeu_nb_joueur_min }}</td>
+            <td>{{ game.jeu_nb_joueur_max }}</td>
+            <td>
+                {% if game.jeu_difficulte == 1 %}Très facile{% endif %}
+                {% if game.jeu_difficulte == 2 %}Facile{% endif %}
+                {% if game.jeu_difficulte == 3 %}Intermédiaire{% endif %}
+                {% if game.jeu_difficulte == 4 %}Difficile{% endif %}
+                {% if game.jeu_difficulte == 5 %}Très difficile{% endif %}
+            </td>
+            <td><a href="{{ base_url() }}backoffice/jeux/modifier/{{ game.jeu_id }}">Modifier</a>
+            </td>
+            <td><a href="{{ base_url() }}backoffice/jeux/supprimer/{{ game.jeu_id }}">Supprimer</a>
+            </td>
+            <td><a href="{{ base_url() }}backoffice/jeux/pdf/{{ game.jeu_id }}"><img src="{{ base_url() }}assets/backoffice/img/qr-code.svg" alt=""></a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

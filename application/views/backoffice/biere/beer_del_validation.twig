@@ -1,0 +1,12 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %}Etes-vous sûr de vouloir supprimer cette bière - {{ parent() }}{% endblock %}
+
+{% block h1 %}Etes-vous sûr de vouloir supprimer cette bière ?{% endblock %}
+
+{% block content %}
+    <p>Etes-vous sûr de vouloir supprimer cette bière ?</p>
+    <a href="{{ base_url() }}backoffice/biere/validation/supprimer/{{ id }}"><button class="btn btn-default">OUI</button></a>
+
+    <a href="{{ base_url() }}backoffice/Beer_back/beer_list"><button class="btn btn-default">NON</button></a>
+{% endblock %}

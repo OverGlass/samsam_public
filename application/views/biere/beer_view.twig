@@ -1,0 +1,145 @@
+{% extends 'base.twig' %}
+{% block title %}Bières | Samsam Café {% endblock %}
+{% block beer %} {% endblock %}
+
+{% block body %}
+
+
+<!--titre de la page-->
+<div class="row">
+    <div class="small-12 columns titre">
+        <h2>Trouve ta mousse !</h2>
+    </div>
+</div>
+
+
+     {# COULEURS DES BIERES #}
+    {% set couleurs = ["blonde","brune","ambrée","blanche","noire","rouge"] %}
+
+<!--ensemble des tags de la page -->
+
+<div class="row">
+    <div class="small-4 columns onlyMobile">
+
+        <select name="select" class="tag" id="beerType">
+            <option value="default" selected>Couleur</option>
+            {% for couleur in couleurs %}
+                {% if couleur == "ambrée" %}
+                    {% set classCouleur = "ambre" %}
+                {% else %}
+                    {% set classCouleur = couleur %}
+                {% endif %}
+                <option value="{{ classCouleur }}">{{ couleur | capitalize }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!--check box pour deskop-->
+    <div class="small-4 columns onlyDesk deskGrid">
+        <input type="radio" name="beerType" id="resetFilter">
+        <label for="resetFilter" class="large-11 columns couleur">X</label>
+    </div>
+    {% for couleur in couleurs %}
+
+
+    <div class="small-4 columns onlyDesk deskGrid">
+        {% if couleur == "ambrée" %}
+            {% set classCouleur = "ambre" %}
+        {% else %}
+            {% set classCouleur = couleur %}
+        {% endif %}
+        <input
+            type="radio"
+            name="colorBeer"
+            id="{{ classCouleur }}"
+            class="{{ classCouleur }}"
+            value="{{ classCouleur }}">
+
+        <label
+                for="{{ classCouleur }}"
+                class="{{ classCouleur }}
+                large-11 columns couleur">{{ couleur | capitalize }}</label>
+
+    </div>
+
+    {% endfor %}
+
+    <!--fin des checkbox-->
+
+
+    <!--les tag brasserie et amertume-->
+
+    <div class="small-4 columns deskGrid">
+        <select name="select" class="tag" id="beerBrewerie">
+            <option value="default" selected>Brasserie</option>
+            {% for brewerie in breweries %}
+                <option value="{{ brewerie }}">{{ brewerie | capitalize }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="small-4 columns deskGrid">
+        <select name="select" class="tag" id="beerBitter">
+            <option value="default" selected>Amertume</option>
+            {% for amertume in amertumes %}
+                <option value="{{ amertume }}">{{ amertume | capitalize }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+
+<!--premier produits-->
+
+<div class="row">
+    {% for beer in beer %}
+    {% if beer.biere_type == "ambrée" %}
+    {% set classCouleur = "ambre" %}
+    {% else %}
+        {% set classCouleur = beer.biere_type %}
+    {% endif %}
+
+
+            <div class="column small-12 medium-6 large-4 end vignette" data-filter="{{ beer.biere_amertume}},{{ classCouleur}},{{ beer.biere_brasserie}}">
+                <a href="{{ base_url() }}biere/{{ beer.biere_id }}">
+                    <div class="produit" >
+                        <div class="small-2 medium-12 columns lol">
+                            <img src="{{ beer.biere_photo }}" alt="{{ beer.biere_nom }}">
+                        </div>
+                        <div class="small-10 medium-12 columns">
+                            <div class="row header-detail">
+                                <div class="small-7 columns nom {{ classCouleur }}">{{ beer.biere_nom }}</div>
+
+                                <div class="small-4 columns type"><span class="{{ classCouleur }}">{{ beer.biere_type | capitalize }}</span> | {{ beer.biere_pourcentage }}%</div>
+                            </div>
+                            <div class="small-12 columns description"><i>{{ beer.biere_description | slice(0, 160)}}...</i></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+    {% block script %}
+        <script>
+            var BF = OverFilter([
+                'beerType',
+                'beerBrewerie',
+                'beerBitter',
+                'blonde',
+                'brune',
+                'blanche',
+                'ambre',
+                'noire',
+                'rouge'
+
+            ], 'vignette','beer');
+
+            BF.listener();
+            BF.saveParam();
+        </script>
+
+    {% endblock %}
+

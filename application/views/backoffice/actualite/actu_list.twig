@@ -1,0 +1,38 @@
+{% extends 'backoffice/backoffice_template.twig' %}
+
+{% block title %} Gestion des actualités - {{ parent() }}{% endblock %}
+
+{% block h1 %} Gestion des Actualités {% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{{ base_url() }}backoffice/actualite/ajout">Ajout d'une actualité</a><br>
+    </div>
+    <table class="table text-center">
+
+        <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Date</td>
+            <td>Catégorie</td>
+            {# lieu, image #}
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for actu in actus %}
+            <tr>
+                <td>{{ actu.actu_nom }}</td>
+                <td>{{ actu.actu_date }}</td>
+                <td>{{ actu.actu_categorie }}</td>
+                <td><a href="{{ base_url() }}backoffice/actualite/modifier/{{ actu.actu_id }}">Modifier</a>
+                </td>
+                <td><a href="{{ base_url() }}backoffice/actualite/supprimer/{{ actu.actu_id }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

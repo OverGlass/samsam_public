@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    {% set deskContent = "" %} {% if block("description") is defined %} {% set deskContent = block("description") %} {% else %} {% set deskContent = "Envie d'une bière ? Où de jouer à un jeux ? Où les deux ? Alors viens au SamSam Café !" %} {% endif %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Samsam">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{ deskContent }}">
+
+    <script>
+        // Standalone WEB APP optimisation  ----------------------------------
+
+        if (window.navigator.standalone == true || window.matchMedia('(display-mode: standalone)').matches) {
+
+            document.getElementsByTagName("body").className = "standalone";
+
+            var a = document.getElementsByTagName("a");
+            for(var i=0;i<a.length;i++)
+            {
+                a[i].onclick=function()
+                {
+                    window.location=this.getAttribute("href");
+                    return false
+                }
+            }
+        }
+        document.addEventListener("touchstart", function(){}, true);
+    </script>
+    <link rel="stylesheet" href="{{ base_url() }}assets/css/app.css">
+    <!--lien pour les favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ base_url() }}assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ base_url() }}assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ base_url() }}assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ base_url() }}assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ base_url() }}assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ base_url() }}assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ base_url() }}assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ base_url() }}assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ base_url() }}assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ base_url() }}assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ base_url() }}assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ base_url() }}assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ base_url() }}assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ base_url() }}assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ base_url() }}assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--meta de facebook-->
+    <meta property="og:url" content="http://www.samsamcafe.fr" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={% block title %}{% endblock %} />
+    <meta property="og:description" content="{{ deskContent }}" />
+    <meta property="og:image" content="http://127.0.0.1:57049/assets/img/logo_samsamcafe.svg" />
+
+    <!--meta de twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@SamSamCafe" />
+    <meta name="twitter:creator" content="@SamSamCafe" />
+
+
+    <title> {{ block("title") }} </title>
+
+</head>
+
+<body>
+    <header class="row">
+        {% set current = 'class=current' %}
+
+        <!--NAV-BAR -->
+        <nav id="mainNav" class="small-12 medium-6 medium-uncollapse large-4 column">
+            <ul class="menu">
+                <li>
+                    <a data-toggle="contact">
+                        <img src="{{ base_url() }}assets/img/ico/ico_contact.svg" alt="Contact Samsam">
+                    </a>
+                </li>
+                <li {% if block( "news") is defined %}{{ current }}{% endif %}>
+                    <a href="{{ base_url() }}actualite"><img src="{{ base_url() }}assets/img/ico/ico_news.svg" alt="Actualité Samsam"></a>
+                </li>
+                <li class="onlyMobile{% if block(" home ") is defined %} current {% endif %}">
+                    <a href="{{ base_url() }}"><img src="{{ base_url() }}assets/img/logo_samsamcafe.svg" alt="Logo Samsam"></a>
+                </li>
+                <li {% if block( "beer") is defined %}{{ current }}{% endif %}>
+                    <a href="{{ base_url() }}biere"><img src="{{ base_url() }}assets/img/ico/ico_beer.svg" alt="Bières Samsam"></a>
+                </li>
+                <li {% if block( "game") is defined %}{{ current }}{% endif %}>
+                    <a href="{{ base_url() }}jeux"><img src="{{ base_url() }}assets/img/ico/ico_jeu.svg" alt="Jeux Samsam"></a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div class="onlyDesk large-4 column">
+            {#
+            <div class="navLogo homeLogoSize">#}
+                <div class="navLogo">
+
+                    <a href="{{ base_url() }}">
+                        <img src="{{ base_url() }}assets/img/logo_samsamcafe.svg" alt="Samsam Café">
+                    </a>
+                </div>
+            </div>
+
+
+            <!--SEARCH-BAR-->
+            <div id="mainSearch" class="small-12 medium-6 medium-uncollapse large-4 column">
+                <div class="searchBar-content">
+                    <div class="columns small-2 search-ico">
+                        <div>
+                            <img src="{{ base_url() }}assets/img/ico/ico-search.svg" alt="Recherche Samsam">
+                        </div>
+                    </div>
+                    <div class="columns small-10">
+                        <input type="text" placeholder="Tu peux chercher un jeu, une bière">
+                    </div>
+                </div>
+            </div>
+
+    </header>
+    <div id="search"></div>
+    <div class="reveal large contactUs" id="contact" data-reveal data-close-on-click="true" data-animation-in="scale-in-down" data-animation-out="scale-out-up">
+        <h1>Rejoins-nous !</h1>
+        <div class="localMap">
+            <div class="large-10 columns large-centered">
+                <img src="{{ base_url() }}assets/img/maps.png" alt="Localisation SamSam" class="map">
+                <a href="https://www.google.fr/maps/place/Sam-Sam+Caf%C3%A9/@48.2993396,4.0741629,20z/data=!4m5!3m4!1s0x0:0x63ca241ae75169f1!8m2!3d48.299375!4d4.074356" class="button GO">Allez au SamSam ! </a>
+            </div>
+        </div>
+
+
+
+        <div class="blockInfo">
+            <div class="row">
+                <div class="small-12 medium-12 large-4 columns"><div class="info">Téléphone : 03 25 73 89 43</div></div>
+                <div class="small-12 medium-6 large-4 columns"><div class="info">Mardi au Vendredi: 11:00 - 1:30</div></div>
+                <div class="small-12 medium-6 large-4 columns end"><div class="info">Lundi et Samedi: 17:00 - 1:30</div></div>
+            </div>
+        </div>
+        <div class="socialNet">
+            <div class="large-2 columns large-centered">
+                <a href="https://twitter.com/SamSamCafe"><img src="{{ base_url() }}assets/img/twitter.png" alt="Twitter"></a>
+                <a href="https://www.facebook.com/SAMSAM-Caf%C3%A9-112417962132112/?fref=ts"><img src="{{ base_url() }}assets/img/facebook.png" alt="Facebook"></a>
+            </div>
+        </div>
+
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+
+    {% block body %}{% endblock %}
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/assets/js/sw.js').
+            then(function(registration) {
+// Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(err) {
+// registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+
+    <script>
+        var baseUrl = "{{ base_url() }}"
+    </script>
+    <script src="{{ base_url() }}assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
+    <script src="{{ base_url() }}assets/bower_components/foundation-sites/dist/js/foundation.min.js"></script>
+    <script src="{{ base_url() }}assets/js/lodash.custom.min.js"></script>
+    <script src="{{ base_url() }}assets/js/OverFilter.js"></script>
+    <script src="{{ base_url() }}assets/js/app.js"></script>
+    {% block script %}{% endblock %}
+    <script>
+        $(document).foundation();
+    </script>
+
+
+</body>
+
+</html>

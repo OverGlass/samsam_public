@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+{% block title %}{% for actu in actu %} {{ actu.actu_nom }}{% endfor %} | Samsam Café {% endblock %}
+
+{% block news %} {% endblock %}
+
+
+{% block body %}
+    {% for actu in actu %}
+        <div class="row" id="retour-bar">
+            <div class="small-8 medium-3 large-2 columns">
+                <a href="{{ base_url() }}actualite"><div class="retour_produit tag"><img src="{{ base_url() }}assets/img/back.svg" alt="">Une autre article ?</div></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="desc_produit">
+                <div class="small-12 medium-6 columns">
+                    <div class="img-detail lol">
+                        <img src="{{ actu.actu_image }}" alt="{{  actu.actu_nom }}" class="onlyMobile">
+                        <img src="{{ actu.actu_image }}" alt="{{  actu.actu_nom }}" class="onlyDesk img-desk">
+                    </div>
+                </div>
+                <div class="small-12 medium-6 columns block-detail">
+                    <div class="row">
+                        <div class="small-12 columns ">
+                            <h1>{{  actu.actu_nom | capitalize }}</h1>
+                        </div>
+
+                    </div>
+                    <div class="small-12 medium-12 columns ">
+                        <p>{{  actu.actu_contenu | raw }}</p>
+                    </div>
+
+                    <div class="row groupeTag small-12 medium-12 columns ">
+
+                        <div class="small-12 medium-6 columns ">
+                            <div class="taginfo">{{ actu.actu_date }}</div>
+                        </div>
+                        <div class="small-12 medium-6 columns end ">
+                            <div class="taginfo">{{ actu.actu_categorie }}</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+

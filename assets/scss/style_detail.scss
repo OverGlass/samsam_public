@@ -1,0 +1,160 @@
+.standalone {
+    #retour-bar {
+        height: 40px;
+        position: fixed;
+        top:70px;
+        & > div {
+            width: auto;
+        }
+        .retour_produit{
+            padding:0 15px;
+        }
+    }
+
+    .desc_produit {
+        margin-top:45px;
+    }
+}
+
+
+#retour-bar {
+    height: 40px;
+    .retour_produit {
+        line-height: 40px;
+        img {
+            height: 20px;
+            padding-right: 10px;
+        }
+    }
+    .logo {
+        height: 100%;
+        text-align: right;
+        img {
+            height: 100%;
+        }
+    }
+}
+
+.desc_produit {
+    background-color: white;
+    margin: 10px 5px 5px 5px;
+    border-radius: 20px;
+    height: auto;
+    &:after {
+        content: ' ';
+        clear: both;
+        display: table;
+    }
+    > .columns {
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    img {
+        //height: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    .taginfo {
+        margin-bottom: 5px;
+        background-color: #25929a;
+        color: #f2f2f2;
+        height: 40px;
+        opacity: 0.7;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: 2px;
+        margin-right: 3px;
+        font-weight: bold;
+        &.diff-1 {
+            background-color: $success-color;
+        }
+        &.diff-2 {
+            background-color: scale-color($success-color, $lightness: -30%);
+        }
+        &.diff-3 {
+            background-color: $warning-color;
+        }
+        &.diff-4 {
+            background-color: $alert-color;
+        }
+        &.diff-5 {
+            background-color: scale-color($alert-color, $lightness: -30%);
+        }
+        &.blanche {
+            color: #cfc188;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #cfc188;
+                color: #fff;
+            }
+        }
+        &.blonde {
+            color: #d0a600;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #d0a600;
+                color: #fff;
+            }
+        }
+        &.ambre {
+            color: #7d6400;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #7d6400;
+                color: #fff;
+            }
+        }
+        &.brune {
+            color: #443700;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #443700;
+                color: #fff;
+            }
+        }
+        &.noire {
+            color: #000;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+        &.rouge {
+            color: #aa0808;
+            font-weight: bold;
+            &.taginfo {
+                background-color: #aa0808;
+                color: #fff;
+            }
+        }
+    }
+    p {
+        text-align: justify;
+        color: #998c8c;
+    }
+    .block-detail {
+        // height: 60vh;
+        @include breakpoint(small only) {
+            padding: 10px;
+        }
+        padding: 20px;
+    }
+    .img-detail {
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        .img-desk {
+            border-radius: 20px 0 0 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+    h1 {
+        font-weight: bold;
+    }
+    .groupeTag {
+        margin-top: 15px;
+        line-height: 40px;
+    }
+}

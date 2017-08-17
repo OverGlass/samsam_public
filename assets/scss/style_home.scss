@@ -1,0 +1,467 @@
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+#all {
+    padding: 5px;
+    @include breakpoint(medium){
+        max-width: 1280px;
+        margin:auto;
+    }
+
+}
+
+#video {
+    //padding-bottom:15px;
+    video {
+    border-radius: 10px;
+    width: 100%;
+    }
+}
+
+
+section.block {
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+
+
+    .titre {
+        height: 75px;
+        padding:10px 0;
+        h3 {
+            padding-top: 5px;
+            font-weight:bold;
+            text-align: center;
+        }
+
+        img {
+            @include breakpoint (large) {
+                height: 50px;
+                margin-top: 10px;
+            }
+            @include breakpoint (medium down) {
+                height: 50px;
+                margin-top: 5px;
+            }
+        }
+
+    }
+
+    
+    .bestTextEver {
+        bottom: 0;
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+        background-color: #fff;
+        color: $blue;
+
+        p {
+            font-size:1.3em;
+            @include breakpoint(small only){
+                font-size:12px !important;
+            }
+            img {
+                display: inline;
+                height:20px;
+            }
+        }
+    }
+
+}
+
+
+body {
+        overflow-x: hidden;
+    }
+
+    .presentation {
+        height: 100vh;
+        @include breakpoint (medium down) {
+            height: 90vh;
+        }
+        .firstPart {
+            .imageAccueil {
+                border-radius: 10px;
+                padding: 10px;
+                margin: 5px;
+                z-index: -1;
+                height: 70vh;
+                max-width: 1500px;
+                video {
+                    position: absolute;
+                    top: 500px;
+                    left: 50%;
+                    max-width: 1350px;
+                    overflow: hidden;
+                    z-index: -100;
+                    transform: translateX(-50%) translateY(-50%);
+                    background-size: cover;
+                    transition: 1s opacity;
+                    border-radius: 20px;
+                }
+                .imgMobile {
+                    position: absolute;
+                    z-index: -10;
+                    top: 130px;
+                    left: 0;
+                    height: 70vh;
+                    border-radius: 15px;
+                    padding-bottom: 0px;
+                    overflow: hidden;
+
+                }
+            }
+            .logo {
+                margin-top: 50px;
+                position: relative;
+            }
+            p {
+                text-align: center;
+                color: $white;
+            }
+        }
+        .interact {
+            @include breakpoint (large) {
+                top: 100px;
+            }
+             @include breakpoint (medium){
+                        margin-top: 50px;
+                    }
+        }
+    }
+
+    .interact {
+        height: 10vh;
+        background-color: $blue;
+        border-radius: 10px;
+        position: relative;
+        opacity: 0.85;
+        min-height: 70px;
+        max-width: 1350px;
+        margin-bottom:20px;
+        p {
+            font-weight: bold;
+            font-size: 15px;
+            color: $white;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 1%;
+            @include breakpoint(large) {
+                font-size: 20px;
+                padding-top: 15px;
+            }
+            @include breakpoint(medium down) {
+                font-size: 20px;
+                padding-top: 15px;
+            }
+        }
+        .down {
+            height: 40px;
+            margin: 0;
+            padding-bottom: 15px;
+        }
+    }
+
+    .secDeux {
+        height: 90vh;
+        max-width: 1350px;
+        @include breakpoint (medium) {
+            height: 80vh;
+            margin-bottom: 50px;
+        }
+        @include breakpoint (small only) {
+            height: 100vh;
+            margin-bottom: 50px;
+        }
+        .descSam {
+            height: 80vh;
+            background-color: $white;
+            border-radius: 10px;
+            @include breakpoint (medium) {
+                height: 70vh;
+            }
+
+
+            h3 {
+                font-weight: bold;
+                margin-top: 10px;
+                color: $blue;
+            }
+            .jeuxPhoto {
+                min-width: 1340px;
+                margin-top: 10px;
+                max-height: 70px;
+                overflow: hidden;
+                @include breakpoint (large) {
+                    max-height: 300px;
+                }
+                @include breakpoint (small) {
+                    max-height: 70px;
+                    min-width: 320px;
+                    margin-top: 50px;
+                }
+                @include breakpoint (medium) {
+                    max-height: 250px;
+                    min-width: 320px;
+                }
+                img {
+                    position: relative;
+                    bottom: 200px;
+                    @include breakpoint (medium down) {
+                        bottom: 70px;
+                    }
+                }
+            }
+            p {
+                text-align: justify;
+                @include breakpoint (medium down) {
+                    padding-left: 20px;
+                    font-size: 14px;
+                    text-align: justify;
+                }
+            }
+            .button {
+                margin-top: 20px;
+                .twitter {
+                    margin-top: 4px;
+                }
+            }
+            p {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .secTrois {
+        height: 100vh;
+        max-width: 1350px;
+              @include breakpoint (medium) {
+                height: 80vh;
+            }
+
+        .localSam {
+            height: 80vh;
+            background-color: $white;
+            border-radius: 10px;
+                  @include breakpoint (medium) {
+                height: 60vh;
+            }
+
+            .titre {
+                height: 70px;
+                img {
+                    @include breakpoint (large) {
+                        height: 50px;
+                        margin-top: 10px
+                    }
+                    @include breakpoint (medium down) {
+                        height: 50px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+            h3 {
+                font-weight: bold;
+                margin-top: 10px;
+                color: $blue;
+            }
+            iframe {
+                border-radius: 15px;
+            }
+            .blockInfo {
+                .info {
+                    background-color: #25929a;
+                    color: #f2f2f2;
+                    height: 40px;
+                    text-align: center;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    font-size: 12px;
+                    line-height: 40px;
+                    margin-top: 10px;
+                    margin-left: 0;
+                    @include breakpoint (large) {
+                        margin-left: 20px;
+                        margin-top: 40px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .carte {
+                height: 200px;
+                width: 100%;
+            }
+        }
+    }
+
+    .tutoSam {
+        border-radius: 10px;
+        background-color: $white;
+        margin-bottom: 50px;
+        .titre {
+            .apprendre {
+                @include breakpoint (medium down) {
+                    height: 50px;
+                    margin-top: 10px;
+                }
+            }
+            h3 {
+                margin-top: 15px;
+            }
+        }
+        #android {
+            display: none;
+            width: 100%;
+            margin-bottom: 10px;
+            &:after {
+                content: '';
+                clear: both;
+                display: table;
+            }
+            p {
+                margin-top: 30px;
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        #ios {
+            display: none;
+            width: 100%;
+            margin-bottom: 10px;
+            &:after {
+                content: '';
+                clear: both;
+                display: table;
+            }
+            p {
+                margin-top: 30px;
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        #windows {
+            display: none;
+            width: 100%;
+            margin-bottom: 10px;
+            &:after {
+                content: '';
+                clear: both;
+                display: table;
+            }
+            p {
+                margin-top: 30px;
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        .photoTuto {
+            border-style: solid;
+            max-width: 500px;
+            margin-top: 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+
+    .bounce {
+        -webkit-animation-name: bounce;
+        -moz-animation-name: bounce;
+        -o-animation-name: bounce;
+        animation-name: bounce;
+    }
+
+    .animated {
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -ms-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        -webkit-animation-duration: 2s;
+        -moz-animation-duration: 2s;
+        -ms-animation-duration: 2s;
+        -o-animation-duration: 2s;
+        animation-duration: 2s;
+    }
+
+    @-webkit-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            -webkit-transform: translateY(0);
+        }
+        40% {
+            -webkit-transform: translateY(-10px);
+        }
+        60% {
+            -webkit-transform: translateY(-10px);
+        }
+    }
+
+    @-moz-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            -moz-transform: translateY(0);
+        }
+        40% {
+            -moz-transform: translateY(-10px);
+        }
+        60% {
+            -moz-transform: translateY(-10px);
+        }
+    }
+
+    @-o-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            -o-transform: translateY(0);
+        }
+        40% {
+            -o-transform: translateY(-10px);
+        }
+        60% {
+            -o-transform: translateY(-10px);
+        }
+    }
+
+    @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        /* for vertical scrollbars */
+        height: 12px;
+        /* for horizontal scrollbars */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #25929A;
+    }
